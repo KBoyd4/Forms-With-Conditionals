@@ -1,0 +1,31 @@
+<h1>Form</h1>
+
+<p>Here is a form...</p>
+
+<% if @params.has_key?(:submitted) %>
+<p>Form has been submitted</p>
+<% end %>
+ 
+<form name="form" method="post">
+<p><label for="Name"> Name: </label> <input type="text" name="Name" id="Name" value = "<%= @params[:Name] %>"></p>
+<p><label for="Address"> Address: <textarea rows="4" cols="50" name="Address" id="Address"><%= @params[:Address] %></textarea></p>
+<p><label for="City"> City: </label> <input type="text" name="City" id="City" value = "<%= @params[:City] %>"></p>
+
+<select name="State">
+  <% @states.each do | state | 
+	if @params[:State] == state[:name] %>
+		<option id="<%= state[:id] %>" selected="selected"><%= state[:name] %></option>
+	<% else %>
+		<option id="<%= state[:id] %>"><%= state[:name] %></option>
+	<% end %>
+  <% end %>
+</select>
+<p><label for="Zip"> ZipCode: </label> <input type="text" name="Zip" id="Zip" value = "<%= @params[:Zip] %>"></p>
+<% if @params.has_key?("Agree") %>
+<p><input type="checkbox" name="Agree" value="Agree" id="Agree" checked> <label for="Agree">I Agree...</label><p>
+<% else %>
+<p><input type="checkbox" name="Agree" value="Agree" id="Agree"> <label for="Agree">I Agree...</label><p>
+<% end %>
+<input type="submit" name ="action" value="Submit">
+</form>
+

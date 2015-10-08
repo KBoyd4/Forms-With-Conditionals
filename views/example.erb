@@ -1,0 +1,31 @@
+<h2>This is an example form</h2>
+
+
+<form name="myform" method="get">
+  <p>
+  <label>Name<br/>
+    <input name="user" type="text">
+  </label>
+  </p>
+
+  <p>
+  <label>Bio<br/>
+    <textarea name="bio"></textarea>
+  </label>
+  </p>
+
+  <p>
+  <label>
+    <input name="are_you_awesome" type="checkbox"> I verify that I am awesome.
+  </label>
+  </p>
+
+  <p>
+  <input type="submit" name="action" value="Test this form">
+  </p>
+</form>
+
+
+<hr />
+
+<%= params %>
